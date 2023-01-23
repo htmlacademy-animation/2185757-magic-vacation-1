@@ -12,11 +12,14 @@
 .social-block__toggler {
   @include btn-reset;
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 0.3s ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -27,30 +30,29 @@
   }
 
   &::before {
-    @include center;
     content: "";
     width: 100%;
     height: 100%;
+    position: absolute;
     border-radius: 50%;
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
   }
 
   svg {
-    @include center;
     display: block;
     width: 2.3rem;
     height: 2.2rem;
   }
 
-  &:hover,
-  .social-block--active & {
+  &:hover {
     color: $c-purple;
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: scale(1.125);
     }
   }
 
@@ -81,6 +83,17 @@
   }
 }
 
+.social-block--active {
+  .social-block__toggler:not(:hover) {
+    &::before {
+      background-color: $c-purple;
+      border-color: $c-purple;
+    }
+
+    color: $c-light;
+  }
+}
+
 .social-block__list {
   @include list-reset;
   position: absolute;
@@ -89,6 +102,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -168,6 +182,14 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transform: translateY(4px);
+  transition-delay: 0.3s;
+
+  .social-block--active & {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -207,6 +229,10 @@
   }
 
   &--fb {
+    .social-block--active & {
+      transition: color 0.3s ease 0s, opacity 0.3s ease 0s, transform 0.3s ease 0s;
+    }
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -219,6 +245,10 @@
   }
 
   &--insta {
+    .social-block--active & {
+      transition: color 0.3s ease 0s, opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+    }
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +261,10 @@
   }
 
   &--vk {
+    .social-block--active & {
+      transition: color 0.3s ease 0s, opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+    }
+
     svg {
       width: 1.7rem;
       height: 1rem;
