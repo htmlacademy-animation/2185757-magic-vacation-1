@@ -65,7 +65,7 @@
   border-radius: 3rem;
   outline: none;
   transform: translateX(92%);
-  transition: transform 0.3s ease;
+  transition: transform $ease-medium;
 
   &:focus {
     border: 1px solid $c-purple;
