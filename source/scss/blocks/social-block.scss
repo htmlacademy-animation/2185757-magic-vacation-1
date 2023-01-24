@@ -84,19 +84,9 @@
   }
 }
 
-@keyframes appearance {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
 .body.page-loaded {
   .social-block__toggler::before {
-    animation: appearance $ease-out-quint-medium;
+    animation: scalingAppearance $ease-out-back-medium;
   }
 }
 

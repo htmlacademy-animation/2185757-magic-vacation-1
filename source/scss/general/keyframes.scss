@@ -21,3 +21,13 @@
     transform: translateY(0);
   }
 }
+
+@keyframes scalingAppearance {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
