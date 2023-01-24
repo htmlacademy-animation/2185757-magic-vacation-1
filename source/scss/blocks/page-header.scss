@@ -276,7 +276,10 @@
 
     &.active {
       &::after {
-        transform: scaleX(1);
+        .body.page-loaded & {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
       }
     }
 
