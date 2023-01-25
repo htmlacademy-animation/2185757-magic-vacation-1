@@ -19,7 +19,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
-  transition: color 0.3s ease;
+  transition: color $ease-medium;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -38,7 +38,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transform: scale(1);
+    transition: transform $ease-medium, background-color $ease-medium, border-color $ease-medium;
     will-change: transform;
   }
 
@@ -83,6 +84,12 @@
   }
 }
 
+.body.page-loaded {
+  .social-block__toggler::before {
+    animation: scalingAppearance $ease-out-back-medium;
+  }
+}
+
 .social-block--active {
   .social-block__toggler:not(:hover) {
     &::before {
@@ -102,7 +109,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity $ease-medium;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -230,7 +237,7 @@
 
   &--fb {
     .social-block--active & {
-      transition: color 0.3s ease 0s, opacity 0.3s ease 0s, transform 0.3s ease 0s;
+      transition: color $ease-medium 0s, opacity $ease-medium 0s, transform $ease-medium 0s;
     }
 
     svg {
@@ -246,7 +253,7 @@
 
   &--insta {
     .social-block--active & {
-      transition: color 0.3s ease 0s, opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+      transition: color $ease-medium 0s, opacity $ease-medium 0.1s, transform $ease-medium 0.1s;
     }
 
     svg {
@@ -262,7 +269,7 @@
 
   &--vk {
     .social-block--active & {
-      transition: color 0.3s ease 0s, opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+      transition: color $ease-medium 0s, opacity $ease-medium 0.2s, transform $ease-medium 0.2s;
     }
 
     svg {

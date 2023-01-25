@@ -35,6 +35,9 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-1.5rem);
+  transition: opacity $ease-out-quint-medium, transform $ease-out-quint-medium;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -177,6 +180,8 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+  opacity: 0;
+  transition: opacity $ease-out-quint-medium;
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -241,7 +246,7 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
-    transition: color 0.3s ease;
+    transition: color $ease-medium;
 
     &::after {
       content: "";
@@ -254,7 +259,7 @@
       left: 0;
       transform: scaleX(0);
       transform-origin: right;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: transform $ease-medium, background-color $ease-medium;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -271,7 +276,10 @@
 
     &.active {
       &::after {
-        transform: scaleX(1);
+        .body.page-loaded & {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
       }
     }
 
@@ -287,6 +295,17 @@
         transform-origin: left;
       }
     }
+  }
+}
+
+.body.page-loaded {
+  .page-header__logo {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .page-header__menu {
+    opacity: 1;
   }
 }
 
