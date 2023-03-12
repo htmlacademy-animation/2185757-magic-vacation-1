@@ -49,6 +49,12 @@
     font-size: 2rem;
     margin-bottom: 1rem;
   }
+
+  .slide-text-bottom-letter {
+    .screen--prizes.active & {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 .prizes__lead {

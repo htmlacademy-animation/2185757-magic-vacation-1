@@ -35,22 +35,144 @@
   z-index: -1;
 
   @media (orientation: portrait) {
-    left: -1rem;
-    right: -1rem;
+    left: -10rem;
+    right: -10rem;
+    top: 25%;
+    bottom: 25%;
+  }
+}
+
+.result__image__image-part {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+
+  &_flamingo {
+    background-size: 22%;
+    background-position: 41% 78%;
+    background-image: url("../../img/result2-flamingo.png");
+    opacity: 0;
+    transform: translateY(30rem) rotate(-25deg);
+
+    .screen--show & {
+      animation: flamingoAppear 0.3s ease-out forwards, flamingoAnimation 2s 0.3s ease-in-out infinite alternate;
+    }
   }
 
-  picture {
-    display: block;
-    width: 100%;
-    height: 100%;
+  &_leaf-blue-1 {
+    background-size: 22%;
+    background-position: 63% 56%;
+    background-image: url("../../img/result2-leaf-blue-1.png");
+    opacity: 0;
+    transform: rotate(-35deg);
+
+    .screen--show & {
+      animation: leafBlue1Appear 1s 0.25s ease-out forwards;
+    }
   }
 
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  &_leaf-blue-2 {
+    background-size: 22%;
+    background-position: 32% 80%;
+    background-image: url("../../img/result2-leaf-blue-2.png");
+    opacity: 0;
+    transform: rotate(35deg);
+
+    .screen--show & {
+      animation: leafBlue2Appear 1s 0.25s ease-out forwards;
+    }
+  }
+
+  &_leaf-green {
+    background-size: 24%;
+    background-position: 71% 70%;
+    background-image: url("../../img/result2-leaf-green.png");
+    opacity: 0;
+    transform: rotate(-30deg);
+
+    .screen--show & {
+      animation: leafBlue1Appear 1s 0.35s ease-out forwards;
+    }
+  }
+
+  &_suitcase {
+    background-size: 30%;
+    background-position: center 75%;
+    background-image: url("../../img/result2-suitcase.png");
+    transform: scale(0);
+    transform-origin: bottom;
+
+    .screen--show & {
+      animation: suitcaseAppear 0.3s $ease-out-back forwards;
+    }
+  }
+}
+
+@keyframes suitcaseAppear {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes flamingoAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes leafBlue1Appear {
+  20% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+
+  40% {
+    transform: rotate(-12deg);
+  }
+
+  60% {
+    transform: rotate(0);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+@keyframes leafBlue2Appear {
+  20% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+
+  40% {
+    transform: rotate(12deg);
+  }
+
+  60% {
+    transform: rotate(0);
+  }
+
+  80% {
+    transform: rotate(5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+@keyframes flamingoAnimation {
+  to {
+    transform: translateY(0.8rem) rotate(-6deg);
   }
 }
 
