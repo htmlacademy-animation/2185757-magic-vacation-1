@@ -65,7 +65,6 @@
   border-radius: 3rem;
   outline: none;
   transform: translateX(92%);
-  transition: transform $ease-medium;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -94,6 +93,21 @@
 
 .screen--game.active {
   .form__field {
+    animation: formFieldAppear $ease-medium forwards;
+
+    &::placeholder {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes formFieldAppear {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
     transform: translateX(0);
   }
 }
@@ -144,23 +158,61 @@
 }
 
 .form--result {
-  .form__field {
+  .form__field-wrapper {
     width: calc(100% - 31rem);
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
     }
 
-    @media (orientation: portrait) {
-      width: calc(100% - 5rem);
-    }
-
     @media (max-width: $tablet) and (orientation: landscape) {
       width: calc(100% - 9rem);
     }
 
-    @media (max-width: $mobile) and (orientation: landscape) {
+    @media (max-width: $mobile) and (orientation: landscape), (orientation: portrait) {
       width: calc(100% - 5rem);
     }
+  }
+}
+
+.screen--result {
+  .form__field {
+    opacity: 0;
+
+    &::placeholder {
+      opacity: 0;
+      transition: opacity $ease-medium 0.8s;
+    }
+  }
+
+  .form__button {
+    opacity: 0;
+    color: transparent;
+  }
+
+  &.screen--show {
+    .form__field {
+      animation: formFieldAppear $ease-medium 0.6s forwards;
+
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+
+    .form__button {
+      animation: formButtonFadeIn $duration-medium 0.6s ease forwards;
+    }
+  }
+}
+
+@keyframes formButtonFadeIn {
+  50% {
+    opacity: 1;
+    color: transparent;
+  }
+
+  to {
+    opacity: 1;
+    color: $c-dark;
   }
 }
