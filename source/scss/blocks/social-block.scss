@@ -17,7 +17,7 @@
   align-items: center;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: var(--theme-color-bg);
   border-radius: 50%;
   transition: color $ease-medium;
 
@@ -50,7 +50,7 @@
   }
 
   &:hover {
-    color: $c-purple;
+    color: var(--theme-color-hover);
 
     &::before {
       transform: scale(1.125);
@@ -58,11 +58,11 @@
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--theme-color-hover);
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      border-color: var(--theme-color-hover);
     }
 
     & + .social-block__list {
@@ -78,8 +78,8 @@
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
+      background-color: var(--theme-color-hover);
+      border-color: var(--theme-color-hover);
     }
   }
 }
@@ -93,8 +93,8 @@
 .social-block--active {
   .social-block__toggler:not(:hover) {
     &::before {
-      background-color: $c-purple;
-      border-color: $c-purple;
+      background-color: var(--theme-color-hover);
+      border-color: var(--theme-color-hover);
     }
 
     color: $c-light;
@@ -214,19 +214,19 @@
   }
 
   &:hover {
-    color: $c-purple;
+    color: var(--theme-color-hover);
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--theme-color-hover);
     background-color: $c-light;
-    border-color: $c-purple;
+    border-color: var(--theme-color-hover);
     outline: none;
   }
 
   &:active,
   &:active:focus {
-    color: $c-purple;
+    color: var(--theme-color-hover);
     background-color: $c-light;
     border-color: $c-light;
   }

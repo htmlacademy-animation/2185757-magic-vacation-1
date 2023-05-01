@@ -51,3 +51,27 @@
     transform: translateY(0);
   }
 }
+
+@keyframes slideRotateLeft {
+  from {
+    transform: translateX(-6.28rem) rotate(-180deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRotateRight {
+  from {
+    transform: translateX(6.28rem) rotate(180deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}

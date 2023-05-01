@@ -285,12 +285,12 @@
 
     &:hover,
     &:focus {
-      color: $c-purple;
+      color: var(--theme-color-hover);
       outline: none;
 
       &::after {
         opacity: 1;
-        background-color: $c-purple;
+        background-color: var(--theme-color-hover);
         transform: scaleX(1);
         transform-origin: left;
       }

@@ -1,0 +1,31 @@
+:root {
+  --default-bg: #5f458c;
+  --indigo-bg: #a07de1;
+  --blue-bg: #3e72ea;
+  --cyan-bg: #90b8e0;
+
+  --default-hover: #a67ee5;
+  --indigo-hover: #5f458a;
+  --blue-hover: #9fcefd;
+  --cyan-hover: #3e72ea;
+}
+
+.body {
+  --theme-color-bg: var(--default-bg);
+  --theme-color-hover: var(--default-hover);
+}
+
+.body.theme-indigo {
+  --theme-color-bg: var(--indigo-bg);
+  --theme-color-hover: var(--indigo-hover);
+}
+
+.body.theme-blue {
+  --theme-color-bg: var(--blue-bg);
+  --theme-color-hover: var(--blue-hover);
+}
+
+.body.theme-cyan {
+  --theme-color-bg: var(--cyan-bg);
+  --theme-color-hover: var(--cyan-hover);
+}
