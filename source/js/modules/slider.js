@@ -1,5 +1,28 @@
 import Swiper from "swiper";
 
+const slidesThemes = [`theme-indigo`, `theme-blue`, `theme-cyan`];
+
+const removeThemeClasses = () => {
+  slidesThemes.forEach((item) => {
+    document.body.classList.remove(item);
+  });
+};
+
+const changeSlideTheme = (storySlider) => {
+  if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
+    removeThemeClasses();
+    document.body.classList.add(slidesThemes[0]);
+  } else if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
+    removeThemeClasses();
+    document.body.classList.add(slidesThemes[1]);
+  } else if (storySlider.activeIndex === 4 || storySlider.activeIndex === 5) {
+    removeThemeClasses();
+    document.body.classList.add(slidesThemes[2]);
+  } else {
+    removeThemeClasses();
+  }
+};
+
 export default () => {
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
@@ -17,6 +40,8 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            changeSlideTheme(storySlider);
+
             if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
             } else if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
@@ -51,6 +76,8 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            changeSlideTheme(storySlider);
+
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
             } else if (storySlider.activeIndex === 2) {
@@ -76,6 +103,14 @@ export default () => {
       storySlider.destroy();
     }
     setSlider();
+  });
+
+  document.body.addEventListener(`change-screen`, () => {
+    removeThemeClasses();
+
+    if (storySlider && document.querySelector(`.screen--story.active`)) {
+      changeSlideTheme(storySlider);
+    }
   });
 
   setSlider();

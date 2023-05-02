@@ -175,6 +175,7 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -236,8 +237,18 @@
   }
 
   &.swiper-button-disabled {
-    opacity: 0.5;
     pointer-events: none;
+  }
+
+
+  .screen--story.active & {
+    &--prev {
+      animation: slideRotateLeft $ease-medium forwards;
+    }
+
+    &--next {
+      animation: slideRotateRight $ease-medium forwards;
+    }
   }
 }
 

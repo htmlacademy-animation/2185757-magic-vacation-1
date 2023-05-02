@@ -329,6 +329,14 @@
       border-color: $c-purple;
     }
   }
+
+  .screen--result.screen--show & {
+    animation: fadeIn $ease-medium;
+
+    span {
+      animation: slideRotateRight $ease-medium;
+    }
+  }
 }
 
 .result__form {
