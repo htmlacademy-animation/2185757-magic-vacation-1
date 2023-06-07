@@ -96,9 +96,11 @@
 
 .prizes__list {
   @include list-reset;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  justify-items: center;
   margin-top: auto;
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -112,6 +114,8 @@
 
 .prizes__item {
   margin-left: 7.5rem;
+  grid-area: 1 / 1 / 2 / 2;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     margin-left: 75px;
@@ -133,6 +137,10 @@
   }
 
   &--journeys {
+    .screen--prizes.active & {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
     .prizes__icon {
       position: relative;
       left: -5.9rem;
