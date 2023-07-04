@@ -42,6 +42,26 @@
   }
 }
 
+@keyframes translateUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes translateLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 @keyframes slidingBottom {
   from {
     transform: translateY(100%);

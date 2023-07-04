@@ -138,7 +138,13 @@
 
   &--journeys {
     .screen--prizes.active & {
-      animation: fadeIn 0.8s ease forwards;
+      animation: fadeIn 0.8s ease forwards, translateLeft 0.8s 0.6s ease forwards;
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      .screen--prizes.active & {
+        animation: fadeIn 0.8s ease forwards, translateUp 0.8s 0.6s ease forwards;
+      }
     }
 
     .prizes__icon {
@@ -172,6 +178,10 @@
 
   &--cases {
     margin-left: 7rem;
+
+    .screen--prizes.active & {
+      animation: fadeIn 1s 0.6s ease forwards;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-left: 70px;
