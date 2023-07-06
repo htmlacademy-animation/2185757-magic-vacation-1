@@ -138,12 +138,12 @@
 
   &--journeys {
     .screen--prizes.active & {
-      animation: fadeIn 0.8s ease forwards, translateLeft 0.8s 0.6s ease forwards;
+      animation: fadeIn 0.6s ease forwards, translateLeft 0.6s 0.4s ease forwards;
     }
 
     @media (max-width: $tablet) and (orientation: portrait) {
       .screen--prizes.active & {
-        animation: fadeIn 0.8s ease forwards, translateUp 0.8s 0.6s ease forwards;
+        animation: fadeIn 0.6s ease forwards, translateUp 0.6s 0.4s ease forwards;
       }
     }
 
@@ -180,7 +180,7 @@
     margin-left: 7rem;
 
     .screen--prizes.active & {
-      animation: fadeIn 1s 0.6s ease forwards;
+      animation: fadeIn 0.8s 0.4s ease forwards;
     }
 
     @media (min-width: $stop-scaling) {
@@ -215,8 +215,15 @@
   }
 
   &--codes {
+    transform: translateX(100%);
+
+    .screen--prizes.active & {
+      animation: fadeIn 1s 0.6s ease forwards;
+    }
+
     @media (max-width: $tablet) and (orientation: portrait) {
       padding-left: 0.8rem;
+      transform: translateY(100%);
     }
 
     .prizes__icon {
