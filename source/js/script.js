@@ -11,6 +11,7 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import {slideTextBottom} from './utils/slide-text-bottom';
 import {initGame} from './modules/game.js';
+import {initPrizesCount} from './modules/prizes-count.js';
 
 // init modules
 handlePageLoad();
@@ -23,6 +24,7 @@ result();
 form();
 social();
 initGame();
+initPrizesCount();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
