@@ -10,6 +10,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import {slideTextBottom} from './utils/slide-text-bottom';
+import {initGame} from './modules/game.js';
 
 // init modules
 handlePageLoad();
@@ -21,6 +22,7 @@ chat();
 result();
 form();
 social();
+initGame();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
